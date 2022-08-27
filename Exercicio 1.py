@@ -11,15 +11,14 @@ class Ordenacao():
         self.array = array_para_ordenar
 
     def ordena(self):
-#<<<<<<< HEAD
-        """Rfulll teste ."""
+
         self.array
 		 # Faz a mágica de ordenar
-#=======
         """Realiza a ordenacao do conteudo do array recebido no construtor................................."""
         self.array  # Faz a mágica de orden
+        """Realiza a ordenacao do conteudo do array recebido no construtor"""
+        self.array  # Faz a mágica de ordenar
 
-		#teste 2
         return ...
 
     def toString(self):

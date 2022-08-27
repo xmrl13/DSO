@@ -31,3 +31,6 @@ class Ordenacao():
 
         self.array  # Faz a mágica de ordenar
         return ...
+
+
+sequencia = Ordenacao('1,2,3,4,5,6,7')

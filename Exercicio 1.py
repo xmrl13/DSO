@@ -11,7 +11,7 @@ class Ordenacao():
         self.array = array_para_ordenar
 
     def ordena(self):
-        """Realiza a ordenacao do conteudo do array recebido no construtor............................."""
+        """Realiza a ordenacao do conteudo do array recebido no construtor................................."""
         self.array  # Faz a mágica de ordenar
 		#teste 2
         return ...

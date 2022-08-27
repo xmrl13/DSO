@@ -6,7 +6,7 @@
 
 class Ordenacao():
 
-    def __init__(self, array_para_ordenar: []):
+    def __init__(self, array_para_ordenar):
         """Recebe o array com o conteudo a ser ordenado"""
         self.array = array_para_ordenar
 

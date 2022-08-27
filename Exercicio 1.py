@@ -2,21 +2,25 @@
    CTC - Centro Tecnologico - http://ctc.ufsc.br
    INE - Departamento de Informatica e Estatistica - http://inf.ufsc.br
 """
-array_entrada = [5,4,3,2,1]
-#teste 0800
+
+
 class Ordenacao():
 
-    def __init__(self, array_para_ordenar: []):
+    def __init__(self, array_para_ordenar):
         """Recebe o array com o conteudo a ser ordenado"""
         self.array = array_para_ordenar
-        print(array_para_ordenar)
 
     def ordena(self):
 
-        print(self)
+        self.array
+		 # Faz a mágica de ordenar
+        """Realiza a ordenacao do conteudo do array recebido no construtor................................."""
+        self.array  # Faz a mágica de orden
+        """Realiza a ordenacao do conteudo do array recebido no construtor"""
+        self.array  # Faz a mágica de ordenar
+
         return ...
 
-    '''
     def toString(self):
         """Converte o conteudo do array em String formatado
            Exemplo:
@@ -27,5 +31,7 @@ class Ordenacao():
 
         self.array  # Faz a mágica de ordenar
         return ...
-    '''
-Ordenacao(array_entrada)
+
+
+sequencia = Ordenacao('1,2,3,4,5,6,7')
+print(type(sequencia.array))

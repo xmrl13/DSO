@@ -59,4 +59,3 @@ class Produto:
     def preco_total(self):
         preco_total = self.preco_unitario * self.quantidade
         return preco_total
-

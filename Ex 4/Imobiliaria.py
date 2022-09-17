@@ -1,3 +1,4 @@
+from logging import raiseExceptions
 from Imovel import Imovel
 
 
@@ -10,7 +11,7 @@ class Imobiliaria:
         return self.__imoveis
 
     def incluir_imovel(self, imovel: Imovel):
-        if isinstance(imovel, Imovel):
+        if (isinstance(imovel, Imovel)):
             self.__imoveis.append(Imovel)
 
     def excluir_imovel(self, imovel: Imovel):

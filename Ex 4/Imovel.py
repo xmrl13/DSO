@@ -9,7 +9,7 @@ class Imovel:
         self.__valor = valor
         self.__locador = locador
         self.__locatarios = []
-        self.__mobilia = []
+        self.__mobilia = [Mobilia(codigo, descricao)]
 
 
     @property
@@ -58,3 +58,5 @@ class Imovel:
 
     def find_locatario_by_codigo(self, codigo_locatario: int):
         pass
+
+imovel1 = Imovel(15, 'Casa Geminada', 1500)

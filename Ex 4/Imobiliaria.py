@@ -10,7 +10,8 @@ class Imobiliaria:
         return self.__imoveis
 
     def incluir_imovel(self, imovel: Imovel):
-        self.__imoveis.append(Imovel)
+        if isinstance(imovel, Imovel):
+            self.__imoveis.append(Imovel)
 
     def excluir_imovel(self, imovel: Imovel):
        self.__imoveis.pop(Imovel)

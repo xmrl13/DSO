@@ -9,7 +9,7 @@ class Imovel:
         self.__valor = valor
         self.__locador = None
         self.__locatarios = []
-        self.__mobilia = [Mobilia(codigo, descricao)]
+        self.__mobilias = [Mobilia(codigo, descricao)]
 
 
     @property
@@ -45,7 +45,7 @@ class Imovel:
         self.__locador = locador
 
     def incluir_locatario(self, locatario: Locatario):
-        pass
+        
 
     def excluir_locatario(self, codigo_locatario: int):
         pass

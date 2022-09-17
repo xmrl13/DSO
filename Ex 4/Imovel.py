@@ -9,7 +9,7 @@ class Imovel:
         self.__valor = valor
         self.__locador = None
         self.__locatarios = []
-        self.__mobilias = [Mobilia(codigo, descricao)]
+        self.mobilias = [Mobilia(codigo, descricao)]
 
 
     @property

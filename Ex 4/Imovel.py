@@ -7,9 +7,9 @@ class Imovel:
         self.__codigo = codigo
         self.__descricao = descricao
         self.__valor = valor
-        self.__locador = None
+        self.__locador = Locador
         self.__locatarios = []
-        self.mobilias = [Mobilia(codigo, descricao)]
+        self.__mobilias = [Mobilia(codigo, descricao)]
 
 
     @property
@@ -45,16 +45,21 @@ class Imovel:
         self.__locador = locador
 
     def incluir_locatario(self, locatario: Locatario):
-        pass
+        if isinstance(locatario, Locatario):
+            self.__locatarios.append(locatario)
+        
 
     def excluir_locatario(self, codigo_locatario: int):
-        pass
+        for codigo in self.__locatarios:
+            if codigo.codigo == codigo_locatario:
+                self.__locatarios.pop(codigo)
 
-    def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str):
+    def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str): # <-
         pass
-
     def excluir_mobilia(self, codigo_mobilia: int):
         pass
 
     def find_locatario_by_codigo(self, codigo_locatario: int):
-        pass
+        for codigo in self.__locatarios:
+            if codigo.codigo == codigo_locatario:
+                return codigo

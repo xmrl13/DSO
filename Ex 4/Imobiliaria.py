@@ -12,7 +12,11 @@ class Imobiliaria:
 
     def incluir_imovel(self, imovel: Imovel):
         if (isinstance(imovel, Imovel)):
-            self.__imoveis.append(Imovel)
+            for valor in self.__imoveis:
+                if valor.codigo == imovel.codigo:
+                    raiseExceptions('Imovel já cadastrado')
+            self.__imoveis.append(imovel)
 
     def excluir_imovel(self, imovel: Imovel):
-       self.__imoveis.pop(Imovel)
+        if (isinstance(imovel, Imovel)):
+            self.__imoveis.pop(imovel)

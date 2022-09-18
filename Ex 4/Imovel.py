@@ -1,4 +1,3 @@
-from ast import Delete
 from Locatario import Locatario
 from Locador import Locador
 from Mobilia import Mobilia
@@ -32,7 +31,7 @@ class Imovel:
     @property
     def valor(self):
         return self.__valor
-    
+
     @valor.setter
     def valor(self,valor):
         if isinstance(valor,float):
@@ -44,37 +43,35 @@ class Imovel:
 
     @locador.setter
     def locador(self, locador):
-        if (isinstance(locador, Locador)):
-            self.__locador = locador
-        
+        pass
+
     @property
     def locatarios(self):
         return self.__locatarios
-    
+
     @property
     def mobilias(self):
         return self.__mobilias
 
+
     def incluir_locatario(self, locatario: Locatario):
-        if (locatario is not None) and (isinstance(locatario, Locatario)):
-            if (locatario not in self.__locatarios):
-                self.__locatarios.append(locatario)
-        
+        pass
+
 
     def excluir_locatario(self, codigo_locatario: int):
-        for codigo in self.__locatarios:
-            if codigo.codigo == codigo_locatario:
-                self.__locatarios.remove(codigo)
+        pass
 
     def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str):
-        self.__mobilias.append(Mobilia(codigo_mobilia,descricao_mobilia))
-            
+        if self not in self.__mobilias:
+            self.__mobilias.append(Mobilia(codigo_mobilia, descricao_mobilia))
+
     def excluir_mobilia(self, codigo_mobilia: int):
-        for pos, valor in enumerate(self.__mobilias):
-            if valor.codigo == codigo_mobilia:
-                self.__mobilias.pop(pos)
+        for chave, valor in enumerate(self.__mobilias):
+            if chave == codigo_mobilia:
+                self.__mobilias.pop(chave)
 
     def find_locatario_by_codigo(self, codigo_locatario: int):
-        for pos, valor in enumerate (self.__locatarios):
-            if codigo_locatario == valor.codigo :
-                return self.__locatarios[pos]
+        pass
+'''
+Testando commit
+'''

@@ -1,3 +1,4 @@
+from ast import Delete
 from Locatario import Locatario
 from Locador import Locador
 from Mobilia import Mobilia
@@ -7,9 +8,9 @@ class Imovel:
         self.__codigo = codigo
         self.__descricao = descricao
         self.__valor = valor
-        self.__locador = Locador
+        self.__locador = locador
         self.__locatarios = []
-        self.__mobilias = [Mobilia(codigo, descricao)]
+        self.__mobilias = []
 
 
     @property
@@ -31,10 +32,11 @@ class Imovel:
     @property
     def valor(self):
         return self.__valor
-
+    
     @valor.setter
-    def valor(self, valor):
-        self.__valor = valor
+    def valor(self,valor):
+        if isinstance(valor,float):
+            self.__valor = valor
 
     @property
     def locador(self):
@@ -42,24 +44,37 @@ class Imovel:
 
     @locador.setter
     def locador(self, locador):
-        self.__locador = locador
+        if (isinstance(locador, Locador)):
+            self.__locador = locador
+        
+    @property
+    def locatarios(self):
+        return self.__locatarios
+    
+    @property
+    def mobilias(self):
+        return self.__mobilias
 
     def incluir_locatario(self, locatario: Locatario):
-        if isinstance(locatario, Locatario):
-            self.__locatarios.append(locatario)
+        if (locatario is not None) and (isinstance(locatario, Locatario)):
+            if (locatario not in self.__locatarios):
+                self.__locatarios.append(locatario)
         
 
     def excluir_locatario(self, codigo_locatario: int):
         for codigo in self.__locatarios:
             if codigo.codigo == codigo_locatario:
-                self.__locatarios.pop(codigo)
+                self.__locatarios.remove(codigo)
 
-    def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str): # <-
-        pass
+    def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str):
+        self.__mobilias.append(Mobilia(codigo_mobilia,descricao_mobilia))
+            
     def excluir_mobilia(self, codigo_mobilia: int):
-        pass
+        for pos, valor in enumerate(self.__mobilias):
+            if valor.codigo == codigo_mobilia:
+                self.__mobilias.pop(pos)
 
     def find_locatario_by_codigo(self, codigo_locatario: int):
-        for codigo in self.__locatarios:
-            if codigo.codigo == codigo_locatario:
-                return codigo
+        for pos, valor in enumerate (self.__locatarios):
+            if codigo_locatario == valor.codigo :
+                return self.__locatarios[pos]

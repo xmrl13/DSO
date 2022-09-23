@@ -16,6 +16,6 @@ class Imobiliaria:
                 self.__imoveis.append(imovel)
 
     def excluir_imovel(self, imovel: Imovel):
-        for chave, valor in enumerate(self.__imoveis):
-            if valor == imovel:
-                self.__imoveis.pop(chave)
+        if imovel is not None and isinstance(imovel, Imovel):
+            if imovel in self.__imoveis:
+                self.__imoveis.remove(imovel)

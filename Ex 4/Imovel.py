@@ -56,7 +56,7 @@ class Imovel:
 
     def incluir_locatario(self, locatario: Locatario):
         if isinstance(locatario, Locatario):
-            if (locatario not in self.__locatarios) and (locatario is not None):
+            if locatario not in self.__locatarios:
                 self.__locatarios.append(locatario)
 
     def excluir_locatario(self, codigo_locatario: int):
@@ -65,14 +65,12 @@ class Imovel:
                 self.__locatarios.pop(chave)
 
     def incluir_mobilia(self, codigo_mobilia: int, descricao_mobilia: str):
-        lista_controle = []
-        if len(self.__mobilias) == 0:
+        verifica = False
+        for valor in self.__mobilias:
+            if valor.codigo == codigo_mobilia:
+                verifica = True
+        if not verifica:
             self.__mobilias.append(Mobilia(codigo_mobilia, descricao_mobilia))
-            lista_controle.append(codigo_mobilia)
-        for i in lista_controle:
-            if codigo_mobilia not in lista_controle:
-                self.__mobilias.append(Mobilia(codigo_mobilia, descricao_mobilia))
-                lista_controle.append(codigo_mobilia)
 
     def excluir_mobilia(self, codigo_mobilia: int):
         for chave, valor in enumerate(self.__mobilias):
@@ -82,5 +80,13 @@ class Imovel:
     def find_locatario_by_codigo(self, codigo_locatario: int):
         for chave, valor in enumerate(self.__locatarios):
             if valor.codigo == codigo_locatario:
+                print(f'Locatario encontrado, codigo = {codigo_locatario}'
+                      f', apontando para: {self.__locatarios[chave]}')
                 return self.__locatarios[chave]
+            else:
+                print('Locatario não encontrado')
 
+
+imovel1 = Imovel(45, 'Casa', 1500, Locador(1234, 'Marcelo', 456, 'ABC'))
+imovel1.incluir_locatario(Locatario(13, 'Marcelo', 456))
+imovel1.find_locatario_by_codigo(13)
